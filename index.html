@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <script src="https://kit.fontawesome.com/ed49ae5b0e.js" crossorigin="anonymous"></script>
+    <title>Class Quiz</title>
+</head>
+<body>
+    <header>
+        <div class="highscore" id="btnHighScore">Highscores <i class="fas fa-crown"></i></div>
+        <div class="timer"><h3= class="time"></h3></div>
+        <div id="currentScoreTitle">
+            <h3>Progress:</h3>
+            <div>
+                <div class="w3-light-grey w3-round" style="width:200;">
+                    <div class="progressbar w3-container w3-round w3-blue" style="width:1%">0%</div>
+            </div>
+            <div class="currentscore">
+                <ol id="currentscoreID">
+                </ol>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="scores">
+            <ol id="scorelist">
+            </ol>
+        </div>
+
+        <div class="card" id="mainscreen">
+            <h1 class="card-header">Javascript Quiz Challenge</h1>
+            <div class="card-body">
+              <h5 class="card-title">The following quiz provides Multiple Choice Questions related to Javascript. You will have to read all given answers and click the correct answer. Selecting the wrong answer will deduct 20 seconds from the timer. Goodluck! </h5>
+              <h5 class="card-title">Game is designed to be played in full screen</h5>
+              <span class="start" Id="btnStart">Start Quiz</span>
+              <span type="hidden" Id="btnSave"></span>
+            </div>
+          </div>
+        </div>
+
+    </main>
+</div>
+    <footer>
+      
+    </footer>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
