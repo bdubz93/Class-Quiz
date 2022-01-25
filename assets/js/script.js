@@ -15,6 +15,8 @@ let FinalScore = {
     time: 0,
     correct: 0
 }
+
+//Questions
 let finishGame=false;
 let letQuiz = [{
     "question":"Inside which <> HTML element do we put the JavaScript?",
@@ -83,7 +85,7 @@ function sendMessage(letMessage) {
           timeEl.textContent = letMessage;
     }
 }
-
+// Displays message if quiz failed
 function printFail() {
     FinalScore.time = secondsLeft;
     FinalScore.correct = 0;
@@ -104,6 +106,8 @@ function printFail() {
         `;
     mainscreen.innerHTML = letText;
 }
+
+//Starts countdown
 function startTime() {
     // Sets interval
     let timerInterval = setInterval(function() {
@@ -122,6 +126,8 @@ function startTime() {
     return(secondsLeft);
 }
 
+
+// Saves score to local storage
 function saveScore() {
     let tempText = initialsInput.value.trim();
  
@@ -130,11 +136,13 @@ function saveScore() {
     letHighScore.push(FinalScore.time+"s "+FinalScore.initials+" "+FinalScore.correct+"/"+letQuiz.length);
     localStorage.setItem("letHighScore", JSON.stringify(letHighScore));
 }
-
+//Clears scores in local storage
 function clearScore() {
     letHighScore=[];
     localStorage.setItem("letHighScore", JSON.stringify(letHighScore));
 }
+
+//Displays score and a message when quiz completed
 function printScore() {
     FinalScore.time = secondsLeft;
     if (secondsLeft < 1) {
@@ -166,7 +174,7 @@ function printScore() {
 
     mainscreen.innerHTML = letText;
 }
-
+//Displays questions
 function printQuestion (letNumber) {
     if(letNumber < letQuiz.length) {
     let letText =  `<h2>`+letQuiz[letNumber].question+`</h2>`+
@@ -182,6 +190,8 @@ function printQuestion (letNumber) {
     } else {printScore()}
 }
 
+
+//Displays correct or wrong on progressbarr
 function printProgress () {
     let qRight = `<span style="color:green;">Correct</span>`;
     let qWrong = `<span style="color:red;">Wrong</span>`;
@@ -210,7 +220,7 @@ function printProgress () {
 
 
 
-
+//Checks if answer is correct or wrong. Deducts 20 seconds if wrong
 function getAnswer(i) {
     let choice1El = document.getElementById("choice1"); 
     let choice2El = document.getElementById("choice2"); 
@@ -266,7 +276,7 @@ function checkAnswer(i) {
         return true;
     } else {return false;}
 }
-
+//Displays progress and hides start button
 function startQuiz() {
     currentScoreEl.style.display = "block";
     currentScoreClass.style.display ="block";
@@ -276,7 +286,7 @@ function startQuiz() {
         printQuestion(i);
         getAnswer(i);
 }
-
+// Displays highscores
 btnHighScore.addEventListener("click", function() {
     if(letHighScore !== null) {
         letHighScore.sort();
@@ -300,7 +310,7 @@ btnHighScore.addEventListener("click", function() {
         }
     } else {letHighScore=[];}
 });
-
+//Starts game upon clicking start button
 btnStart.addEventListener("click", function() {
     startTime();
     //start quiz
