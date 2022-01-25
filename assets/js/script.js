@@ -9,7 +9,7 @@ let scorelist = document.querySelector("#scorelist");
 let progressbar = document.querySelector(".progressbar");
 let HighScoreForm = document.querySelector("#letHighScore");
 let showscore = false;
-let secondsLeft = 120;
+let secondsLeft = 80;
 let FinalScore = {
     initials: "",
     time: 0,
